@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>TO DO LIST MANAGER</h1>
+<h2>April 2026</h2>
+
+<div class="calendar">
+    {% for day in range(1,31) %}
+        <a href="/tasks/2026-04-{{'%02d' % day}}"
+           class="date
+           {% if status_dict[day] == 'green' %}green
+           {% elif status_dict[day] == 'red' %}red
+           {% endif %}">
+           {{day}}
+        </a>
+    {% endfor %}
+</div>
+
+</body>
+</html>

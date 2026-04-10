@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tasks</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>{{date}} Tasks</h1>
+
+<form method="POST">
+    <input type="text" name="task" placeholder="Enter task" required>
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+    {% for task in tasks %}
+    <li>
+        <!-- ✅ FIXED toggle -->
+        <a href="/toggle/{{task[0]}}/{{date}}">
+            <input type="checkbox" {% if task[3]==1 %}checked{% endif %}>
+        </a>
+
+        {{task[2]}}
+
+        <a href="/delete/{{task[0]}}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="/">Back</a>
+
+</body>
+</html>
